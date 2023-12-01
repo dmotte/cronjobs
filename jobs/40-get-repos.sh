@@ -20,6 +20,6 @@ mkdir repos
     github_get_all_repos users/dmotte \
         '.archived == false and .fork == false' | \
         tr -d '\r' | while read -r i; do
-            git clone --depth=1 "https://github.com/$i.git"
+            git clone --depth=1 --no-single-branch "https://github.com/$i.git"
         done
 )

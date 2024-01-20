@@ -4,7 +4,7 @@ set -e
 
 cd "$(dirname "$0")"
 
-repolist="$(find repos -mindepth 1 -maxdepth 1)"
+repolist=$(find repos -mindepth 1 -maxdepth 1)
 
 # The git_status_all_branches step is a prerequisite because we need to get all
 # the branches as refs/heads/* instead of refs/remotes/*

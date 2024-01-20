@@ -14,4 +14,6 @@ jobs:
   job:
     uses: dmotte/misc/.github/workflows/cicd-with-script.yml@main
     with:
-      script: bash main.sh
+      script: >
+        bash -c 'for i in jobs/*.sh; do
+          echo "::group::$i"; bash "$i"; echo "::endgroup::"; done'

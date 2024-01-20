@@ -9,7 +9,7 @@ cd "$(dirname "$0")"
 
 script_git_status_all_branches="$(fetch_and_check \
     'https://raw.githubusercontent.com/dmotte/misc/main/scripts/git-status-all-branches.sh' \
-    'd5646c08f91783e2fd69c2f3a4d020878dd0b6c8efe93d134525d3befe5be293')"
+    'c60a8b94d0310f521b66426a7ebb8e3e982025b97ad6405da546d53aaca478ba')"
 git_status_all_branches() { bash <(echo "$script_git_status_all_branches") "$@"; }
 
 script_git_check_branches="$(fetch_and_check \

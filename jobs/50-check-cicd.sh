@@ -6,9 +6,9 @@ cd "$(dirname "$0")"
 
 check_grep() {
     echo "Checking if pattern $1 can be found in file $2"
-    if ! grep "$1" "$2" >/dev/null; then
+    grep "$1" "$2" >/dev/null || {
         echo 'Pattern could not be found' >&2; exit 1
-    fi
+    }
 }
 
 find repos -mindepth 1 -maxdepth 1 | while read -r i; do

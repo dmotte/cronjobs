@@ -13,5 +13,3 @@ echo -n "$repolist" | xargs -rd\\n \
 
 echo -n "$repolist" | xargs -rd\\n \
     bash "$MISC_SCRIPTS_DIR/git-check-branches.sh"
-
-echo OK

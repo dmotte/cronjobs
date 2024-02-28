@@ -13,5 +13,3 @@ find . -type f -iname README.md | while read -r i; do
     [ "$expected" = "$actual" ] || \
         { echo "README header mismatch in $i: $actual" >&2; exit 1; }
 done
-
-echo OK

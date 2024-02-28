@@ -16,5 +16,3 @@ find repos -mindepth 1 -maxdepth 1 | while read -r i; do
         "$i/.github/workflows/main.yml"
     check_grep 'package-ecosystem: github-actions' "$i/.github/dependabot.yml"
 done
-
-echo OK

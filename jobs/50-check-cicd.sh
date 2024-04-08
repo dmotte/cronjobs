@@ -6,7 +6,7 @@ cd "$(dirname "$0")"
 
 check_grep() {
     echo "Checking if pattern $1 can be found in file $2"
-    grep "$1" "$2" >/dev/null || \
+    grep "$1" "$2" >/dev/null ||
         { echo 'Pattern could not be found' >&2; return 1; }
 }
 

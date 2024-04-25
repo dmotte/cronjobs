@@ -2,6 +2,9 @@
 
 set -e
 
+# Ensure that some variables are defined
+: "${MISC_SCRIPTS_DIR:?}"
+
 cd "$(dirname "$0")"
 
 mkdir repos

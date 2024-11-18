@@ -15,6 +15,6 @@ jobs:
     uses: dmotte/misc/.github/workflows/cicd-with-script.yml@main
     with:
       script: >
-        MISC_SCRIPTS_DIR=$GITHUB_ACTION_PATH/../../scripts
+        MISC_SCRIPTS_DIR="$GITHUB_ACTION_PATH/../../scripts"
         bash -ec 'for i in jobs/*.sh; do
           echo "::group::$i"; bash "$i"; echo "::endgroup::"; done'

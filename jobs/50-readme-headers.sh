@@ -4,10 +4,13 @@ set -e
 
 cd "$(dirname "$0")"
 
-find . -type f -iname README.md | while read -r i; do
+readmes=$(find repos -type f -iname README.md)
+
+echo "$readmes" | while read -r i; do
     echo "Checking $i"
 
-    expected="# $(basename "$(dirname "$i")")"
+    parent_dir=${i%/*}
+    expected="# ${parent_dir##*/}"
     actual=$(head -n1 "$i")
 
     [ "$expected" = "$actual" ] ||

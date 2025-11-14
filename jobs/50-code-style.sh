@@ -12,4 +12,4 @@ echo 'Checking code style rules'
 bash "$MISC_SCRIPTS_DIR/cicd/check-no-trailing-spaces.sh" repos
 
 bash "$MISC_SCRIPTS_DIR/cicd/check-newlines-eof.sh" repos \
-    ! -name '*.php' ! -name '*.svg'
+    \! -name '*.php' \! -name '*.svg'

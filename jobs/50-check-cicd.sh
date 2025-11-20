@@ -12,7 +12,7 @@ check_grep() {
 
 repolist=$(find repos -mindepth 1 -maxdepth 1)
 
-echo "$repolist" | while read -r i; do
+echo "$repolist" | while IFS= read -r i; do
     check_grep \
         'uses: dmotte/misc/\.github/workflows/cicd-with-script\.yml@main' \
         "$i/.github/workflows/main.yml"

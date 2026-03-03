@@ -29,8 +29,8 @@ SOFTWARE.
 -----END CONTENT-----'
 
 repolist=$(find repos -mindepth 1 -maxdepth 1)
-
-echo "$repolist" | while IFS= read -r i; do
+[ -n "$repolist" ] || { echo 'No repos found' >&2; exit 1; }
+while IFS= read -r i || [ -n "$i" ]; do
     path=$i/LICENSE
 
     # We add BEGIN/END markers to work around the problem that "$(...)" removes
@@ -43,4 +43,4 @@ echo "$repolist" | while IFS= read -r i; do
 
     echo "Checking license file $path"
     diff --color <(echo "$content_expected") <(echo "$content_actual")
-done
+done < <(printf '%s' "$repolist")

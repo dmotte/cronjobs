@@ -11,10 +11,10 @@ check_grep() {
 }
 
 repolist=$(find repos -mindepth 1 -maxdepth 1)
-
-echo "$repolist" | while IFS= read -r i; do
+[ -n "$repolist" ] || { echo 'No repos found' >&2; exit 1; }
+while IFS= read -r i || [ -n "$i" ]; do
     check_grep \
         'uses: dmotte/misc/\.github/workflows/cicd-with-script\.yml@main' \
         "$i/.github/workflows/main.yml"
     check_grep 'package-ecosystem: github-actions' "$i/.github/dependabot.yml"
-done
+done < <(printf '%s' "$repolist")
